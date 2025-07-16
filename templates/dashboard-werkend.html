@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+  <p style="margin: 20px;">Ingelogd als <strong>{{ username }}</strong> | <a href="/logout">Logout</a></p>
+<p style="text-align: center; font-size: 0.9em; color: gray;">
+  Laatste verversing: <span id="refresh-time">{{ current_time }}</span>
+</p>
+
+  <h1>Welkom, {{ username }}!</h1>
+  {% for category, feeds in categories.items() %}
+    <div class="category">
+      <h2>{{ category }}</h2>
+      <div class="columns">
+        {% for feed in feeds %}
+          <div class="column" draggable="true" data-title="{{ feed.title }}">
+            <h3>{{ feed.title }}</h3>
+            {% for item in feed["items"] %}
+              <div class="item">
+                <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+<hr>
+<h3>Nieuwe RSS-feed toevoegen</h3>
+<form action="/add_feed" method="POST">
+    <label for="title">Titel:</label><br>
+    <input type="text" id="title" name="title" required><br><br>
+
+    <label for="url">Feed URL:</label><br>
+    <input type="url" id="url" name="url" required><br><br>
+
+    <label for="category">Categorie:</label><br>
+    <input type="text" id="category" name="category" required><br><br>
+
+    <button type="submit">Toevoegen</button>
+</form>
+
+{% endblock %}

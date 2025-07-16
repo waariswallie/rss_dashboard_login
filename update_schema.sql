@@ -1,0 +1,1 @@
+ALTER TABLE rss_feeds ADD COLUMN user_id INT NOT NULL DEFAULT 1;

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Welkom, {{ username }}!</h1>
+  {% for category, feeds in categories.items() %}
+    <div class="category">
+      <h2>{{ category }}</h2>
+      <div class="columns">
+        {% for feed in feeds %}
+          <div class="column">
+            <h3>{{ feed.title }}</h3>
+            {% for item in feed.items %}
+              <div class="item">
+                <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}
