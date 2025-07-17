@@ -19,7 +19,7 @@ db_config = {
     'port': int(os.getenv('DB_PORT', 3306))
 }
 
-# zet een database connectie op vanuit hetS config bestand
+# zet een database connectie op vanuit het config bestand
 def get_db_connection():
     return mysql.connector.connect(**db_config)
 
