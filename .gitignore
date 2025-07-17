@@ -1,0 +1,5 @@
+# GitHub Actions runner directory
+actions-runner/
+
+# Script dat niet gedeeld hoeft te worden
+gitexec.sh
