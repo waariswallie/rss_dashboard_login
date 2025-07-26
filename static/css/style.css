@@ -35,22 +35,9 @@ h1 {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 768px) {
-    .feed-item {
-        flex: 1 1 100%; /* Single column on mobile */
-    }
-}
-
 /* Grid layout for feeds */
 .feed-container {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr)); /* Force 5 columns */
     gap: 16px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .feed-container {
-        grid-template-columns: 1fr; /* Single column on mobile */
-    }
 }
