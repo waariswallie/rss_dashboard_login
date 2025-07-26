@@ -1,4 +1,4 @@
-/* General styles. */
+/* General styles */
 body {
     font-size: 12px; /* Make the font size slightly smaller */
     font-family: Arial, sans-serif;
@@ -39,79 +39,6 @@ h1 {
     .feed-item {
         flex: 1 1 100%; /* Single column on mobile */
     }
-}
-
-.feeds {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-}
-.feed {
-    background: white;
-    padding: 1em;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    width: 300px;
-}
-.feed h3 {
-    margin-top: 0;
-}
-.feeds-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: flex-start;
-}
-
-.columns {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
-}
-
-.column {
-    background: white;
-    padding: 16px;
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    cursor: move;
-    flex: 1 1 300px;
-}
-.columns {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-}
-
-.column {
-        background: white;
-        padding: 16px;
-        border-radius: 6px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        cursor: move;
-        flex: 1 1 calc(20% - 1em); /* 5 columns */
-        min-width: 220px;
-}
-.column h3 {
-    margin-top: 0;
-}
-
-.column.dragging {
-    opacity: 0.5;
-    border: 2px dashed #999;
-}
-
-.item {
-    margin-bottom: 8px;
-}
-
-.item a {
-    text-decoration: none;
-    color: #333;
-}
-
-.item a:hover {
-    text-decoration: underline;
 }
 
 /* Grid layout for feeds */
