@@ -24,7 +24,7 @@ h1 {
 /* Feed styles */
 .feed-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 1fr); /* Force 5 columns */
     gap: 20px;
 }
 .feed {
@@ -51,11 +51,4 @@ h1 {
 }
 .feed ul li a:hover {
     text-decoration: underline;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .feed-container {
-        grid-template-columns: 1fr;
-    }
 }
