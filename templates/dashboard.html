@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+  <link rel="stylesheet" href="/static/css/style.css">
   <p style="margin: 20px;">Ingelogd als <strong>{{ username }}</strong> | <a href="/logout">Logout</a></p>
 <p style="text-align: center; font-size: 0.9em; color: gray;">
   Laatste verversing: <span id="refresh-time">{{ current_time }}</span>
