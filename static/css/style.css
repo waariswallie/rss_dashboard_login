@@ -1,4 +1,6 @@
+/* General styles */
 body {
+    font-size: 16px; /* Default font size */
     font-family: Arial, sans-serif;
     background: #f0f0f0;
     margin: 0;
@@ -10,6 +12,35 @@ h1 {
 .category {
     margin-bottom: 2em;
 }
+
+/* Layout adjustments */
+.container {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* Feed styles */
+.feed {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.feed-item {
+    flex: 1 1 calc(20% - 10px); /* 5 columns */
+    margin: 5px;
+    background: white;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .feed-item {
+        flex: 1 1 100%; /* Single column on mobile */
+    }
+}
+
 .feeds {
     display: flex;
     flex-wrap: wrap;
@@ -30,15 +61,6 @@ h1 {
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: flex-start;
-}
-
-.feed-item {
-    flex: 1 1 calc(20% - 1rem); /* max 5 per rij */
-    min-width: 300px;           /* op mobiel gaan ze vanzelf onder elkaar */
-    background: white;
-    padding: 1rem;
-    border-radius: 6px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .columns {
