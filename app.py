@@ -76,7 +76,7 @@ def dashboard():
             "title": feed["title"],
             "items": parsed.entries[:5]
         })
-    # Alle bestaande feeds (voor dropdown)
+    # Alle bestaande feeds (voor dropdown).
     connection = get_db_connection()
     cursor = connection.cursor(dictionary=True)
     cursor.execute("SELECT title, url, category FROM rss_feeds")
