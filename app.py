@@ -9,7 +9,7 @@ from datetime import datetime
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
-# Laad .env met db-config
+# Laad .env met db-config.
 load_dotenv()
 db_config = {
     'host': os.getenv('DB_HOST'),
