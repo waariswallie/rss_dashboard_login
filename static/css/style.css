@@ -11,8 +11,8 @@ h1 {
     margin-bottom: 2em;
 }
 .feeds {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 1em;
 }
 .feed {
@@ -26,8 +26,8 @@ h1 {
     margin-top: 0;
 }
 .feeds-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
     gap: 1rem;
     justify-content: flex-start;
 }
