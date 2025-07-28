@@ -8,11 +8,9 @@ h1 {
     text-align: center;
 }
 .category {
-    margin-bottom: 2em;
-    display: inline-block;
-    vertical-align: top;
-    width: calc(20% - 1em); /* Adjust width for 5 categories per row */
-    margin: 0.5em;
+  margin-bottom: 2em;
+  display: block;
+  cursor: move; /* Make category draggable */
 }
 .feeds {
     display: grid;
@@ -44,19 +42,19 @@ h1 {
     min-width: 300px;           /* op mobiel gaan ze vanzelf onder elkaar */
 }
 
-/* Force grid layout and override flex */
+/* Update layout for widgets and categories */
 .columns {
-  display: grid !important; /* Ensure grid layout */
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Flexible layout for widgets */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Max 5 widgets per row */
   gap: 1em;
 }
 
 .column {
-    background: white;
-    padding: 16px;
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    cursor: move;
+  background: white;
+  padding: 16px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  cursor: move;
 }
 
 @media (max-width: 1200px) {
