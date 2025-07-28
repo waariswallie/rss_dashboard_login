@@ -22,7 +22,7 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_rsa_github_action -o StrictHostKeyChecking=no pi@192.168.0.70 << 'EOF'
           cd ~/docker/dev/rss/rss_dashboard_login
-          docker-compose down
-          docker-compose up -d
+          docker compose down
+          docker compose up -d
           EOF
 
