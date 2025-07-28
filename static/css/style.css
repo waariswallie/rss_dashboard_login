@@ -40,8 +40,9 @@ h1 {
     min-width: 300px;           /* op mobiel gaan ze vanzelf onder elkaar */
 }
 
+/* Ensure grid layout for .columns */
 .columns {
-  display: grid !important; /* Ensure grid is applied */
+  display: grid !important; /* Force grid layout */
   grid-template-columns: repeat(5, 1fr); /* Always 5 columns */
   gap: 1em;
 }
