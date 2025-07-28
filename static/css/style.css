@@ -9,7 +9,9 @@ h1 {
 }
 .category {
   margin-bottom: 2em;
-  display: block;
+  display: inline-block;
+  vertical-align: top;
+  width: 100%; /* Ensure category spans full width */
   cursor: move; /* Make category draggable */
 }
 .feeds {
@@ -42,7 +44,15 @@ h1 {
     min-width: 300px;           /* op mobiel gaan ze vanzelf onder elkaar */
 }
 
-/* Update layout for widgets and categories */
+/* Ensure categories remain fixed and draggable */
+.category {
+  margin-bottom: 2em;
+  display: inline-block;
+  vertical-align: top;
+  width: 100%; /* Ensure category spans full width */
+  cursor: move; /* Make category draggable */
+}
+
 .columns {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* Max 5 widgets per row */
