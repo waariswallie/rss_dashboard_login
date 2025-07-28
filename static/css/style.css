@@ -9,6 +9,10 @@ h1 {
 }
 .category {
     margin-bottom: 2em;
+    display: inline-block;
+    vertical-align: top;
+    width: calc(20% - 1em); /* Adjust width for 5 categories per row */
+    margin: 0.5em;
 }
 .feeds {
     display: grid;
@@ -43,7 +47,7 @@ h1 {
 /* Force grid layout and override flex */
 .columns {
   display: grid !important; /* Ensure grid layout */
-  grid-template-columns: repeat(5, 1fr); /* Always 5 columns */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Flexible layout for widgets */
   gap: 1em;
 }
 
