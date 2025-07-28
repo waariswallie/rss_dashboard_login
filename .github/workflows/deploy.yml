@@ -16,12 +16,12 @@ jobs:
 
       - name: Copy files to Raspberry Pi
         run: |
-          scp -i ~/.ssh/id_rsa_github_action -o StrictHostKeyChecking=no -r . pi@192.168.0.70:/docker/dev/rss/rss_dashboard_login
+          scp -i ~/.ssh/id_rsa_github_action -o StrictHostKeyChecking=no -r . pi@192.168.0.70:~/docker/dev/rss/rss_dashboard_login
 
       - name: Restart Docker container
         run: |
           ssh -i ~/.ssh/id_rsa_github_action -o StrictHostKeyChecking=no pi@192.168.0.70 << 'EOF'
-          cd /docker/dev/rss/rss_dashboard_login
+          cd ~/docker/dev/rss/rss_dashboard_login
           docker-compose down
           docker-compose up -d
           EOF
