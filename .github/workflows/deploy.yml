@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - extra-feeds
+      - herstel1
 
 jobs:
   deploy:
@@ -15,8 +16,12 @@ jobs:
 
       - name: Deploy using Docker Compose
         run: |
+          ssh -o StrictHostKeyChecking=no pi@192.168.0.70 << 'EOF'
           cd ~/docker/dev/rss/rss_dashboard_login
-          git pull origin extra-feeds
+          git fetch origin
+          git checkout ${{ github.ref_name }}
+          git pull origin ${{ github.ref_name }}
           docker compose down
           docker compose up -d --build
+          EOF
 
