@@ -42,7 +42,7 @@ h1 {
 }
 
 .columns {
-  display: grid;
+  display: grid !important; /* Ensure grid is applied */
   grid-template-columns: repeat(5, 1fr); /* Always 5 columns */
   gap: 1em;
 }
