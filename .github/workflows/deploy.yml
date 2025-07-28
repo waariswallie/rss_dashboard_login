@@ -15,6 +15,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Fix permissions
+        run: |
+          ssh -i ~/.ssh/id_rsa_github_action -o StrictHostKeyChecking=no pi@192.168.0.70 "chmod -R 755 ~/docker/dev/rss/rss_dashboard_login"
+
       - name: Copy files to Raspberry Pi
         run: |
           scp -i ~/.ssh/id_rsa_github_action -o StrictHostKeyChecking=no -r . pi@192.168.0.70:~/docker/dev/rss/rss_dashboard_login
