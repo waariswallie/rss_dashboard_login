@@ -1,5 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
   const categories = document.querySelectorAll('.category');
+  const container = document.querySelector('.feeds-container');
+
+  // Restore order from localStorage
+  const savedOrder = JSON.parse(localStorage.getItem('categoryOrder')) || [];
+  if (savedOrder.length > 0) {
+    savedOrder.forEach(id => {
+      const category = document.getElementById(id);
+      if (category) {
+        container.appendChild(category);
+      }
+    });
+  }
 
   categories.forEach(category => {
     category.addEventListener('dragstart', (e) => {
@@ -9,10 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     category.addEventListener('dragend', () => {
       category.classList.remove('dragging');
+      saveOrder();
     });
   });
-
-  const container = document.querySelector('.feeds-container');
 
   container.addEventListener('dragover', (e) => {
     e.preventDefault();
@@ -37,5 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return closest;
       }
     }, { offset: Number.NEGATIVE_INFINITY }).element;
+  }
+
+  function saveOrder() {
+    const order = [...container.querySelectorAll('.category')].map(category => category.id);
+    localStorage.setItem('categoryOrder', JSON.stringify(order));
   }
 });
