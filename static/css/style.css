@@ -33,12 +33,11 @@ h1 {
 }
 
 .feed-item {
-    flex: 1 1 calc(20% - 1rem); /* max 5 per rij */
-    min-width: 300px;           /* op mobiel gaan ze vanzelf onder elkaar */
     background: white;
     padding: 1rem;
     border-radius: 6px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    min-width: 300px;           /* op mobiel gaan ze vanzelf onder elkaar */
 }
 
 .columns {
