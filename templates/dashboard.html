@@ -6,23 +6,18 @@
 </p>
 
   <h1>Welkom, {{ username }}!</h1>
-  {% for category, feeds in categories.items() %}
-    <div class="category" draggable="true">
-      <h2>{{ category }}</h2>
-      <div class="columns">
-        {% for feed in feeds %}
-          <div class="column" draggable="true" data-title="{{ feed.title }}">
-            <h3>{{ feed.title }}</h3>
-            {% for item in feed["items"] %}
-              <div class="item">
-                <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
-              </div>
-            {% endfor %}
+  <div class="columns">
+    {% for feed in all_feeds %}
+      <div class="column" draggable="true" data-title="{{ feed.title }}">
+        <h3>{{ feed.title }}</h3>
+        {% for item in feed["items"] %}
+          <div class="item">
+            <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
           </div>
         {% endfor %}
       </div>
-    </div>
-  {% endfor %}
+    {% endfor %}
+  </div>
 <hr>
 <h3>RSS-feed toevoegen</h3>
 <form action="/add_feed" method="POST">
