@@ -9,17 +9,6 @@ h1 {
     color: #333;
     text-align: center;
 }
-.category {
-  margin-bottom: 2em;
-  display: inline-block;
-  vertical-align: top;
-  width: 100%; /* Ensure category spans full width */
-  cursor: move; /* Make category draggable */
-  background: #ffffff; /* White background */
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  padding: 1em;
-}
 
 .feeds {
     display: grid;
@@ -39,25 +28,15 @@ h1 {
 .feeds-container {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
-/*    justify-content: flex-start; */
+    gap: 1em;
 }
 
 .feed-item {
     background: white;
     padding: 1rem;
-    border-radius: 6px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    min-width: 300px;           /* op mobiel gaan ze vanzelf onder elkaar */
-}
-
-/* Ensure categories remain fixed and draggable */
-.category {
-  margin-bottom: 2em;
-  display: inline-block;
-  vertical-align: top;
-  width: 100%; /* Ensure category spans full width */
-  cursor: move; /* Make category draggable */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 300px; /* Ensure proper width */
 }
 
 .columns {
