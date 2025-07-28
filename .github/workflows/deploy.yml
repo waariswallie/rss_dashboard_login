@@ -1,27 +1,28 @@
-name: Deploy on Raspberry Pi
+name: Deploy to Raspberry Pi
 
 on:
   push:
     branches:
-      - extra-feeds
+      - main
       - herstel1
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Deploy using Docker Compose
+      - name: Copy files to Raspberry Pi
+        run: |
+          scp -o StrictHostKeyChecking=no -r . pi@192.168.0.70:/docker/dev/rss/rss_dashboard_login
+
+      - name: Restart Docker container
         run: |
           ssh -o StrictHostKeyChecking=no pi@192.168.0.70 << 'EOF'
-          cd ~/docker/dev/rss/rss_dashboard_login
-          git fetch origin
-          git checkout ${{ github.ref_name }}
-          git pull origin ${{ github.ref_name }}
-          docker compose down
-          docker compose up -d --build
+          cd /docker/dev/rss/rss_dashboard_login
+          docker-compose down
+          docker-compose up -d
           EOF
 
