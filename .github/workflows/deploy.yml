@@ -8,21 +8,15 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Copy files to Raspberry Pi
-        run: |
-          scp -o StrictHostKeyChecking=no -r . pi@192.168.0.70:/docker/dev/rss/rss_dashboard_login
-
       - name: Restart Docker container
         run: |
-          ssh -o StrictHostKeyChecking=no pi@192.168.0.70 << 'EOF'
           cd /docker/dev/rss/rss_dashboard_login
           docker-compose down
           docker-compose up -d
-          EOF
 
