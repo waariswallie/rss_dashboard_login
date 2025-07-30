@@ -65,29 +65,18 @@ def dashboard():
     cursor.close()
     connection.close()
 
-    categories = {}
+    all_feeds = []
     for feed in feeds:
         parsed = feedparser.parse(feed["url"])
         if parsed.bozo:
             continue
 
-        category = feed["category"]
-        if category not in categories:
-            categories[category] = []
-        categories[category].append({
+        all_feeds.append({
             "title": feed["title"],
             "items": list(parsed.entries)[:5]  # Ensure items are iterable and limit to 5
         })
 
-    # Alle bestaande feeds (voor dropdown)
-    connection = get_db_connection()
-    cursor = connection.cursor(dictionary=True)
-    cursor.execute("SELECT title, url, category FROM rss_feeds")
-    all_feeds = cursor.fetchall()
-    cursor.close()
-    connection.close()
-
-    return render_template("dashboard.html", categories=categories, username=session.get('username'),
+    return render_template("dashboard.html", username=session.get('username'),
         current_time=datetime.now().strftime("%Y-%m-%d %H:%M:%S"), all_feeds=all_feeds)
 
 @app.route('/register', methods=['GET', 'POST'])
