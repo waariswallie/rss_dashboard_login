@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
   <p style="margin: 20px;">Ingelogd als <strong>{{ username }}</strong> | <a href="/logout">Logout</a></p>
-<p style="text-align: center; font-size: 0.9em; color: gray;">
-  Laatste verversing: <span id="refresh-time">{{ current_time }}</span>
-</p>
+  <p style="text-align: center; font-size: 0.9em; color: gray;">
+    Laatste verversing: <span id="refresh-time">{{ current_time }}</span>
+  </p>
 
   <h1>Welkom, {{ username }}!</h1>
   <div class="columns">
@@ -18,32 +18,31 @@
       </div>
     {% endfor %}
   </div>
-<hr>
-<h3>RSS-feed toevoegen</h3>
-<form action="/add_feed" method="POST">
-    <label for="existing">Kies een bestaande feed:</label><br>
-    <select id="existing" name="existing">
-        <option value="">-- kies een feed --</option>
-        {% for feed in all_feeds %}
-          <option value="{{ feed.title }}|{{ feed.url }}|{{ feed.category }}">
-            {{ feed.title }} ({{ feed.category }})
-          </option>
-        {% endfor %}
-    </select>
-    <br><br>
+  <hr>
+  <h3>RSS-feed toevoegen</h3>
+  <form action="/add_feed" method="POST">
+      <label for="existing">Kies een bestaande feed:</label><br>
+      <select id="existing" name="existing">
+          <option value="">-- kies een feed --</option>
+          {% for feed in all_feeds %}
+            <option value="{{ feed.title }}|{{ feed.url }}|{{ feed.category }}">
+              {{ feed.title }} ({{ feed.category }})
+            </option>
+          {% endfor %}
+      </select>
+      <br><br>
 
-    <strong>Of vul handmatig een nieuwe feed in:</strong><br>
+      <strong>Of vul handmatig een nieuwe feed in:</strong><br>
 
-    <label for="title">Titel:</label><br>
-    <input type="text" id="title" name="title"><br><br>
+      <label for="title">Titel:</label><br>
+      <input type="text" id="title" name="title"><br><br>
 
-    <label for="url">Feed URL:</label><br>
-    <input type="url" id="url" name="url"><br><br>
+      <label for="url">Feed URL:</label><br>
+      <input type="url" id="url" name="url"><br><br>
 
-    <label for="category">Categorie:</label><br>
-    <input type="text" id="category" name="category"><br><br>
+      <label for="category">Categorie:</label><br>
+      <input type="text" id="category" name="category"><br><br>
 
-    <button type="submit">Toevoegen</button>
-</form>
-
+      <button type="submit">Toevoegen</button>
+  </form>
 {% endblock %}
