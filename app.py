@@ -73,7 +73,7 @@ def dashboard():
 
         all_feeds.append({
             "title": feed["title"],
-            "items": list(parsed.entries)[:5]  # Ensure items are iterable and limit to 5
+            "items": [entry for entry in parsed.entries[:5]]  # Ensure items are iterable and limit to 5
         })
 
     return render_template("dashboard.html", username=session.get('username'),
