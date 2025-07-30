@@ -76,8 +76,9 @@ def dashboard():
             categories[category] = []
         categories[category].append({
             "title": feed["title"],
-            "items": parsed.entries[:5]
+            "items": list(parsed.entries[:5])  # Ensure items are iterable
         })
+
     # Alle bestaande feeds (voor dropdown)
     connection = get_db_connection()
     cursor = connection.cursor(dictionary=True)
