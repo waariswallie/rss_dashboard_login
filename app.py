@@ -76,7 +76,7 @@ def dashboard():
             categories[category] = []
         categories[category].append({
             "title": feed["title"],
-            "items": list(parsed.entries[:5])  # Ensure items are iterable
+            "items": list(parsed.entries)[:5]  # Ensure items are iterable and limit to 5
         })
 
     # Alle bestaande feeds (voor dropdown)
