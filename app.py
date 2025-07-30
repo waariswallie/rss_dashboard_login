@@ -46,10 +46,12 @@ def get_feeds_for_user(user_id):
     connection.close()
     return feeds
 
-@app.route('/')
+# Ensure feed['items'] is iterable
+@app.route("/dashboard")
 def dashboard():
-    if 'user_id' not in session:
-        return redirect('/login')
+    username = session.get('username')
+    if not username:
+        return redirect(url_for('login'))
 
     connection = mysql.connector.connect(**db_config)
     cursor = connection.cursor(dictionary=True)
