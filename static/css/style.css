@@ -1,6 +1,6 @@
 body {
-    font-family: 'Roboto', sans-serif; /* Friendly font */
-    background: #f9f9f9; /* Light background */
+    font-family: 'Arial', sans-serif; /* Friendly font */
+    background: #f0f0f0; /* Light background */
     margin: 0;
     padding: 1em;
 }
@@ -41,16 +41,43 @@ h1 {
 
 .columns {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Max 5 widgets per row */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Flexible grid layout */
   gap: 1em;
 }
 
 .column {
   background: #ffffff;
-  padding: 16px;
+  padding: 1em;
   border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  cursor: move;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
+}
+
+.column:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.item {
+  margin-bottom: 0.5em;
+}
+
+h3 {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+footer {
+  text-align: center;
+  margin-top: 2em;
+  font-size: 0.9em;
+  color: #666;
 }
 
 @media (max-width: 1200px) {
