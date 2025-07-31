@@ -10,7 +10,7 @@
     {% for feed in all_feeds %}
       <div class="column" draggable="true" data-title="{{ feed.title }}">
         <h3>{{ feed.title }}</h3>
-        {% for item in feed.items %}
+        {% for item in feed["items"] %}
         <div class="item">
           <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
         </div>
